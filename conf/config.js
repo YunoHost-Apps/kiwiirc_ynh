@@ -169,7 +169,7 @@ conf.quit_message = "http://www.kiwiirc.com/ - A hand-crafted IRC client";
 // Default settings for the client. These may be changed in the browser
 conf.client = {
     server: 'irc.freenode.net',
-    port:    6667,
+    port:    6697,
     ssl:     true,
     channel: '#',
     channel_key: '',
