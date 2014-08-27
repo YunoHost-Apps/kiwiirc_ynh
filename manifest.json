@@ -1,0 +1,46 @@
+{
+    "name": "KiwiIRC",
+    "id": "kiwiirc",
+    "description": {
+        "en": "Web IRC client",
+        "fr": "Client Web pour IRC"
+    },
+    "developer": {
+        "name": "Julien Malik",
+        "email": "julien.malik@paraiso.me",
+        "url": "https://kiwiirc.com/"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for KiwiIRC",
+                    "fr": "Choisissez un domaine pour KiwiIRC"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for KiwiIRC",
+                    "fr": "Choisissez un path pour KiwiIRC"
+                },
+                "example": "/irc",
+                "default": "/irc"
+            },
+            {
+                "name": "public_site",
+                "ask": {
+                    "en": "Is it a public KiwiIRC site ?",
+                    "fr": "Est-ce un site public ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "Yes"
+            }
+        ]
+    }
+}
+
+

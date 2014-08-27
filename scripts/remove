@@ -1,0 +1,15 @@
+#!/bin/bash
+
+domain=$(sudo yunohost app setting kiwiirc domain)
+
+sudo service ynh-kiwiirc stop
+sudo update-rc.d ynh-kiwiirc remove
+sudo rm /etc/init.d/ynh-kiwiirc
+sudo yunohost service remove ynh-kiwiirc
+sudo rm -f /etc/nginx/conf.d/$domain.d/kiwiirc.conf
+sudo rm -f /var/log/ynh-kiwiirc.log
+sudo rm -rf /var/run/yunohost/kiwiirc
+sudo rm -f /etc/logrotate.d/ynh-kiwiirc
+
+# remove user so that it does not hold resource
+sudo userdel --remove kiwiirc
