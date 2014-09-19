@@ -18,7 +18,7 @@ sudo apt-get install nodejs-legacy npm -y
 version=de1607bf1e9ba4429a10f895a6ec45c54daa3161
 echo "Downloading KiwiIRC $version..."
 mkdir ../tmp
-sudo wget -O ../tmp/kiwiirc-$version.tar.gz "https://github.com/prawnsalad/KiwiIRC/archive/de1607bf1e9ba4429a10f895a6ec45c54daa3161.tar.gz"
+sudo wget -O ../tmp/kiwiirc-$version.tar.gz "https://github.com/prawnsalad/KiwiIRC/archive/$version.tar.gz"
 
 echo "Deploying source files..."
 cd ../tmp && tar xvzf ../tmp/kiwiirc-$version.tar.gz && cd ../scripts
