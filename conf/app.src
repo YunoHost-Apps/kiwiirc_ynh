@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/kiwiirc/kiwiirc/releases/download/v1.5.0/kiwiirc_v1.5.0.zip
+SOURCE_SUM=c7b31b2a92b173db4a3878d95aa74c8eb796e7b4d5600a80a00a73d80aa12ada
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
