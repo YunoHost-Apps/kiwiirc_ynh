@@ -50,13 +50,22 @@ ynh_app_setting_set --app=$app --key=path      --value=$path_url
 ynh_app_setting_set --app=$app --key=is_public --value=$is_public
 
 #=================================================
+# FIND AND OPEN A PORT
+#=================================================
+ynh_script_progression --message="Configuring firewall..." --time --weight=1
+
+# Find an available port
+port=$(ynh_find_port --port=8095)
+ynh_app_setting_set --app=$app --key=port --value=$port
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=2
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
-mv ../sources/dist "$final_path"
+ynh_setup_source --dest_dir="$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
