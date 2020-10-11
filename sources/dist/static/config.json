@@ -16,8 +16,11 @@
         { "name": "Elite", "url": "static/themes/elite" }
     ],
     "startupOptions" : {
-        "channel": "#kiwiirc-default",
-        "nick": "kiwi-n?"
+        "server": "chat.freenode.net",
+        "port": 6697,
+        "tls": true,
+        "channel": "#yunohost",
+        "nick": ""
     },
     "embedly": {
         "key": ""
