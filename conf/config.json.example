@@ -1,7 +1,7 @@
 {
     "windowTitle": "Kiwi IRC - The web IRC client",
     "startupScreen": "welcome",
-    "kiwiServer": "https://__DOMAIN____PATH__/",
+    "kiwiServer": "https://__DOMAIN__/__PATH__/",
     "restricted": false,
     "theme": "Default",
     "themes": [
