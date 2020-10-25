@@ -48,6 +48,8 @@ ynh_script_progression --message="Removing KiwiIRC main directory..." --weight=6
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
 
+ynh_secure_remove --file="/var/www/webircgateway"
+
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
