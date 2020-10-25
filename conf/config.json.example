@@ -1,5 +1,5 @@
 {
-    "windowTitle": "Kiwi IRC - The web IRC client",
+    "windowTitle": "Kiwi IRC",
     "startupScreen": "welcome",
     "kiwiServer": "https://__DOMAIN__/webirc/kiwiirc/",
     "restricted": false,
@@ -16,7 +16,7 @@
         { "name": "Elite", "url": "static/themes/elite" }
     ],
     "startupOptions" : {
-        "server": "chat.freenode.net",
+        "server": "irc.freenode.net",
         "port": 6697,
         "tls": true,
         "channel": "#yunohost",
