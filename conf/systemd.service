@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=http
 Group=http
-ExecStart=/var/www/webircgateway/webircgateway --config=/var/www/webircgateway/config.conf
+ExecStart=/var/www/webircgateway/kiwiirc --config=/var/www/webircgateway/config.conf
 ExecReload=/usr/bin/kill -USR1 $MAINPID
 LimitNOFILE=1048576
 
