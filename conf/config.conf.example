@@ -55,8 +55,8 @@ port = 80
 
 # Example unix socket server
 #[server.3]
-#bind = unix:/tmp/webircgateway.sock
-#bind_mode = 0777
+bind = unix:/tmp/webircgateway.sock
+bind_mode = 0777
 
 # Serve static files from a web root folder.
 # Optional, but handy for serving the Kiwi IRC client if no other webserver is available
@@ -88,7 +88,7 @@ kiwiirc
 
 # Connections will be sent to a random upstream
 [upstream.1]
-hostname = "irc.kiwiirc.com"
+hostname = "chat.freenode.net"
 port = 6667
 tls = false
 # Connection timeout in seconds
