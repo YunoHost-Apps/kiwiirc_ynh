@@ -15,7 +15,7 @@ HedgeDoc is a real-time collaborative word processing web service. It uses Markd
 
 ## Screenshots
 
-![]()
+![](https://kiwiirc.com/img/screenshot.png)
 
 ## Demo
 
