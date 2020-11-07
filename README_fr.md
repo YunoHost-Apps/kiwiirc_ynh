@@ -1,21 +1,21 @@
 # KiwiIRC pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)  
-[![Installer HedgeDoc avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=kiwiirc)
+[![Installer kiwiIRC avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=kiwiirc)
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d'installer HedgeDoc rapidement et simplement sur un serveur YunoHost.  
+> *Ce package vous permet d'installer kiwiIRC rapidement et simplement sur un serveur YunoHost.  
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-HedgeDoc est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
+KiwiIRC est un messager Web polyvalent utilisant IRC.
 
 **Version incluse :** 1.5.0
 
 ## Captures d'écran
 
-![]()
+![](https://kiwiirc.com/img/screenshot.png)
 
 ## Démo
 
