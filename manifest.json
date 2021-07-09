@@ -3,11 +3,19 @@
     "id": "kiwiirc",
     "packaging_format": 1,
     "description": {
-        "en": "",
-        "fr": ""
+        "en": "A versatile web based messenger using IRC",
+        "fr": "Une messagerie Web polyvalente utilisant IRC"
     },
     "version": "1.5.0~ynh1",
     "url": "https://github.com/kiwiirc/kiwiirc",
+    "upstream": {
+        "license": "AGPL-3.0-only",
+        "website": "https://kiwiirc.com/",
+        "demo": "https://kiwiirc.com/nextclient",
+        "admindoc": "https://github.com/kiwiirc/kiwiirc/wiki",
+        "userdoc": "https://yunohost.org/apps",
+        "code": "https://github.com/kiwiirc/kiwiirc"
+    },
     "license": "AGPL-3.0-only",
     "maintainer": {
         "name": ""
