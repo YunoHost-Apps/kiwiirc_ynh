@@ -125,7 +125,7 @@ ynh_add_config --template="../conf/config.conf.example" --destination="$webircga
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description "A short description of the app" --log "/var/log/$app/$app.log"
+yunohost service add $app --description="A versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
