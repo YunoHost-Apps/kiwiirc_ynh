@@ -40,16 +40,13 @@ test ! -e "$final_path" || ynh_die --message="This path already contains a folde
 # Register (book) web path
 ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 
-mkdir -p /var/www/webircgateway
-webircgateway_path=/var/www/webircgateway
-
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
 ynh_script_progression --message="Storing installation settings..." --weight=2
 
-ynh_app_setting_set --app=$app --key=domain    --value=$domain
-ynh_app_setting_set --app=$app --key=path      --value=$path_url
+ynh_app_setting_set --app=$app --key=domain --value=$domain
+ynh_app_setting_set --app=$app --key=path --value=$path_url
 ynh_app_setting_set --app=$app --key=is_public --value=$is_public
 
 #=================================================
@@ -62,6 +59,14 @@ port=$(ynh_find_port --port=7778)
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
+# CREATE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Configuring system user..." --weight=3
+
+# Create a system user
+ynh_system_user_create --username=$app --home_dir=$final_path
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=2
@@ -70,7 +75,25 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$final_path"
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
+#=================================================
+#CREAT GATEWAYPATH
+#=================================================
+ynh_script_progression --message="Setting up gatheway path..." --weight=2
+
+webircgateway_path=/var/www/webircgateway
+mkdir -p $webircgateway_path
+
+ynh_app_setting_set --app=$app --key=webircgateway_path --value=$webircgateway_path
+
 mv ../sources/webircgateway/* $webircgateway_path
+
+chmod 750 "$webircgateway_path"
+chmod -R o-rwx "$webircgateway_path"
+chown -R $app:www-data "$webircgateway_path"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -79,14 +102,6 @@ ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Configuring system user..." --weight=3
-
-# Create a system user
-ynh_system_user_create --username=$app --home_dir=$final_path
 
 #=================================================
 # SETUP SYSTEMD
@@ -101,24 +116,9 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Modifying a config file..."
 
-cp ../conf/config.json.example "$final_path/static/config.json"
+ynh_add_config --template="../conf/config.json.example" --destination="$final_path/static/config.json"
 
-# Main config File
-ynh_replace_string --match_string="__DOMAIN__" --replace_string="$domain" --target_file="$final_path/static/config.json"
-
-cp ../conf/config.conf.example "$webircgateway_path/config.conf"
-
-ynh_store_file_checksum --file="$final_path/static/config.json"
-ynh_store_file_checksum --file="$webircgateway_path/config.conf"
-
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-ynh_script_progression --message="Securing files and directories..."
-
-# Set permissions to app files
-chown -R $app:$app $final_path
-chown -R www-data:www-data $webircgateway_path
+ynh_add_config --template="../conf/config.conf.example" --destination="$webircgateway_path/config.conf"
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
@@ -143,7 +143,7 @@ ynh_script_progression --message="Configuring SSOwat..." --weight=1
 # Make app public if necessary or protect it
 if [ $is_public -eq 1 ]
 then
-	ynh_permission_update --permission "main" --add "visitors"
+	ynh_permission_update --permission="main" --add="visitors"
 fi
 
 #=================================================
