@@ -1,52 +1,44 @@
 # KiwiIRC pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)  
-[![Installer kiwiIRC avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
+[![Installer KiwiIRC avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
 
-*[Read this readme in english.](./README.md)* 
+*[Read this readme in english.](./README.md)*
+*[Lire ce readme en français.](./README_fr.md)*
 
-> *Ce package vous permet d'installer kiwiIRC rapidement et simplement sur un serveur YunoHost.  
-Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
+> *Ce package vous permet d'installer KiwiIRC rapidement et simplement sur un serveur YunoHost.
+Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
-KiwiIRC est un messager Web polyvalent utilisant IRC.
 
-**Version incluse :** 1.5.0
+A versatile web based messenger using IRC
+
+###Features:
+
+- For single networks, bouncer hosts, or a personal generic IRC client that remembers your networks
+- Works out of the box with a default IRC network - or use your own
+- Single or multiple IRC network connections
+- Light and dark modes
+- Desktop notifications
+- Extremely versatile via a single JSON config file at runtime
+
+
+**Version incluse :** 1.5.0~ynh1
+
+**Démo :** https://kiwiirc.com/nextclient
 
 ## Captures d'écran
 
-![](https://kiwiirc.com/img/screenshot.png)
+![](./doc/screenshots/screenshot.png)
 
-## Démo
+## Documentations et ressources
 
-* [Démo officielle]()
-
-## Configuration
-
-## Documentation
-
- * Documentation officielle : https://github.com/kiwiirc/kiwiirc/wiki
- * Documentation YunoHost : 
-
-## Caractéristiques spécifiques YunoHost
-
-#### Support multi-utilisateur
-
-* L'authentification LDAP est-elle prise en charge ? **Oui**
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
-
-#### Architectures supportées
-
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/kiwiirc%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/kiwiirc/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/kiwiirc%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/kiwiirc/)
-
-## Liens
-
- * Signaler un bug : https://github.com/YunoHost-Apps/kiwiirc_ynh/issues
- * Dépôt de l'application principale : https://github.com/kiwiirc/kiwiirc
- * Site web YunoHost : https://yunohost.org/
-
----
+* Site officiel de l'app : https://kiwiirc.com/
+* Documentation officielle utilisateur : https://yunohost.org/apps
+* Documentation officielle de l'admin : https://github.com/kiwiirc/kiwiirc/wiki
+* Dépôt de code officiel de l'app : https://github.com/kiwiirc/kiwiirc
+* Documentation YunoHost pour cette app : https://yunohost.org/app_kiwiirc
+* Signaler un bug : https://github.com/YunoHost-Apps/kiwiirc_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -58,3 +50,5 @@ sudo yunohost app install https://github.com/YunoHost-Apps/kiwiirc_ynh/tree/test
 ou
 sudo yunohost app upgrade kiwiirc -u https://github.com/YunoHost-Apps/kiwiirc_ynh/tree/testing --debug
 ```
+
+**Plus d'infos sur le packaging d'applications :** https://yunohost.org/packaging_apps

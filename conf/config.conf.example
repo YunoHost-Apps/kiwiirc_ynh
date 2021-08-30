@@ -88,9 +88,9 @@ kiwiirc
 
 # Connections will be sent to a random upstream
 [upstream.1]
-hostname = "chat.freenode.net"
-port = 6667
-tls = false
+hostname = "irc.libera.chat"
+port = 6697
+tls = true
 # Connection timeout in seconds
 timeout = 5
 # Throttle the lines being written by X per second
