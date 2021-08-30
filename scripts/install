@@ -13,9 +13,6 @@ source /usr/share/yunohost/helpers
 # MANAGE SCRIPT FAILURE
 #=================================================
 
-ynh_clean_setup () {
-	ynh_clean_check_starting
-}
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
 
@@ -116,7 +113,6 @@ ynh_add_systemd_config
 ynh_script_progression --message="Modifying a config file..."
 
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/static/config.json"
-
 ynh_add_config --template="../conf/config.conf.example" --destination="$webircgateway_path/config.conf"
 
 #=================================================
@@ -124,7 +120,7 @@ ynh_add_config --template="../conf/config.conf.example" --destination="$webircga
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="A versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -132,7 +128,7 @@ yunohost service add $app --description="A versatile web based messenger using I
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 
 #=================================================
 # SETUP SSOWAT
