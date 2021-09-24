@@ -133,7 +133,7 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring SSOwat..." --weight=1
+ynh_script_progression --message="Configuring permissions..." --weight=1
 
 # Make app public if necessary or protect it
 if [ $is_public -eq 1 ]
@@ -152,4 +152,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of KiwiIRC completed" --last
+ynh_script_progression --message="Installation of $app completed" --last
