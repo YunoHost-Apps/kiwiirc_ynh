@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 A versatile web based messenger using IRC
 
-###Features:
+### Features:
 
 - For single networks, bouncer hosts, or a personal generic IRC client that remembers your networks
 - Works out of the box with a default IRC network - or use your own
