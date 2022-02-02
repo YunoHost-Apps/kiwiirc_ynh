@@ -90,6 +90,7 @@ mv ../sources/webircgateway/* $webircgateway_path
 chmod 750 "$webircgateway_path"
 chmod -R o-rwx "$webircgateway_path"
 chown -R $app:www-data "$webircgateway_path"
+chmod +x "$webircgateway_path/kiwiirc"
 
 #=================================================
 # NGINX CONFIGURATION

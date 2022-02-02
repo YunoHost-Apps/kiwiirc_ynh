@@ -13,7 +13,6 @@
         "website": "https://kiwiirc.com/",
         "demo": "https://kiwiirc.com/nextclient",
         "admindoc": "https://github.com/kiwiirc/kiwiirc/wiki",
-        "userdoc": "https://yunohost.org/apps",
         "code": "https://github.com/kiwiirc/kiwiirc"
     },
     "license": "AGPL-3.0-only",
@@ -21,7 +20,7 @@
         "name": ""
     },
     "requirements": {
-        "yunohost": ">= 4.2.4"
+        "yunohost": ">= 4.3.0"
     },
     "multi_instance": false,
     "services": [
