@@ -34,7 +34,6 @@ A versatile web based messenger using IRC
 ## Documentations et ressources
 
 * Site officiel de l'app : https://kiwiirc.com/
-* Documentation officielle utilisateur : https://yunohost.org/apps
 * Documentation officielle de l'admin : https://github.com/kiwiirc/kiwiirc/wiki
 * Dépôt de code officiel de l'app : https://github.com/kiwiirc/kiwiirc
 * Documentation YunoHost pour cette app : https://yunohost.org/app_kiwiirc
