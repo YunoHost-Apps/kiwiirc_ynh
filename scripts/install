@@ -69,27 +69,33 @@ ynh_script_progression --message="Setting up source files..." --weight=2
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path"
+#ynh_setup_source --dest_dir="$final_path"
 
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
+tempdir="$(mktemp -d)"
+
+ynh_setup_source --dest_dir=$tempdir --source_id=app
+
+ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
+
 #=================================================
 #CREAT GATEWAYPATH
 #=================================================
-ynh_script_progression --message="Setting up gatheway path..." --weight=2
+# ynh_script_progression --message="Setting up gatheway path..." --weight=2
 
-webircgateway_path=/var/www/webircgateway
-mkdir -p $webircgateway_path
+# webircgateway_path=/var/www/webircgateway
+# mkdir -p $webircgateway_path
 
-ynh_app_setting_set --app=$app --key=webircgateway_path --value=$webircgateway_path
+# ynh_app_setting_set --app=$app --key=webircgateway_path --value=$webircgateway_path
 
-mv ../sources/webircgateway/* $webircgateway_path
+# mv ../sources/webircgateway/* $webircgateway_path
 
-chmod 750 "$webircgateway_path"
-chmod -R o-rwx "$webircgateway_path"
-chown -R $app:www-data "$webircgateway_path"
+# chmod 750 "$webircgateway_path"
+# chmod -R o-rwx "$webircgateway_path"
+# chown -R $app:www-data "$webircgateway_path"
 
 #=================================================
 # NGINX CONFIGURATION
