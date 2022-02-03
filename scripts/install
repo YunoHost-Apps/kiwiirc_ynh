@@ -100,10 +100,10 @@ ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-# ynh_script_progression --message="Configuring NGINX web server..." --weight=2
+ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
-# # Create a dedicated NGINX config
-# ynh_add_nginx_config
+# Create a dedicated NGINX config
+ynh_add_nginx_config
 
 #=================================================
 # SETUP SYSTEMD
