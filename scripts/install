@@ -118,7 +118,7 @@ ynh_add_config --template="../conf/config.conf.example" --destination="$webircga
 
 chmod 600 "$final_path/static/config.json"
 chmod 600 "$webircgateway_path/config.conf"
-chown $app:$app "$final_path/some_config_file"
+chown $app:$app "$final_path/static/config.json"
 chown $app:$app "$webircgateway_path/config.conf"
 
 #=================================================
