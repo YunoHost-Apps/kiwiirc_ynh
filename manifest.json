@@ -6,7 +6,7 @@
         "en": "Versatile web based messenger using IRC",
         "fr": "Messagerie Web polyvalente utilisant IRC"
     },
-    "version": "1.5.0~ynh1",
+    "version": "20.05.24.1~ynh1",
     "url": "https://github.com/kiwiirc/kiwiirc",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -33,13 +33,10 @@
                 "type": "domain"
             },
             {
-                "name": "is_public",
-                "type": "boolean",
-                "help": {
-                    "en": "If enabled, KiwiIRC will be accessible by people who do not have an account. This can be changed later via the webadmin.",
-                    "fr": "Si cette case est cochée, KiwiIRC sera accessible aux personnes n’ayant pas de compte. Vous pourrez changer ceci plus tard via la webadmin."
-                },
-                "default": true
+                "name": "path",
+                "type": "path",
+                "example": "/kiwiirc",
+                "default": "/kiwiirc"
             }
         ]
     }
