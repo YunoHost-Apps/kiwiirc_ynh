@@ -48,11 +48,11 @@ ynh_app_setting_set --app=$app --key=path --value=$path_url
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
+# ynh_script_progression --message="Finding an available port..." --weight=1
 
-# Find an available port
-port=$(ynh_find_port --port=7778)
-ynh_app_setting_set --app=$app --key=port --value=$port
+# # Find an available port
+# port=$(ynh_find_port --port=7778)
+# ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
 # CREATE DEDICATED USER
@@ -65,15 +65,15 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=2
+# ynh_script_progression --message="Setting up source files..." --weight=2
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
-# Download, check integrity, uncompress and patch the source from app.src
-#ynh_setup_source --dest_dir="$final_path"
+# ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+# # Download, check integrity, uncompress and patch the source from app.src
+# #ynh_setup_source --dest_dir="$final_path"
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+# chmod 750 "$final_path"
+# chmod -R o-rwx "$final_path"
+# chown -R $app:www-data "$final_path"
 
 tempdir="$(mktemp -d)"
 
@@ -100,10 +100,10 @@ ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=2
+# ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
-# Create a dedicated NGINX config
-ynh_add_nginx_config
+# # Create a dedicated NGINX config
+# ynh_add_nginx_config
 
 #=================================================
 # SETUP SYSTEMD
@@ -113,13 +113,13 @@ ynh_script_progression --message="Configuring a systemd service..." --weight=1
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
-#=================================================
-# MODIFY A CONFIG FILE
-#=================================================
-ynh_script_progression --message="Modifying a config file..."
+# #=================================================
+# # MODIFY A CONFIG FILE
+# #=================================================
+# ynh_script_progression --message="Modifying a config file..."
 
-ynh_add_config --template="../conf/config.json.example" --destination="$final_path/static/config.json"
-ynh_add_config --template="../conf/config.conf.example" --destination="$webircgateway_path/config.conf"
+# ynh_add_config --template="../conf/config.json.example" --destination="$final_path/static/config.json"
+# ynh_add_config --template="../conf/config.conf.example" --destination="$webircgateway_path/config.conf"
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
