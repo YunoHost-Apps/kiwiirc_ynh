@@ -61,9 +61,9 @@ ynh_setup_source --dest_dir=$tempdir --source_id=app
 
 ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
 
-=================================================
-ADD A CONFIGURATION
-=================================================
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
 ynh_add_config --template="../conf/config.conf.example" --destination="/etc/kiwiirc/config.conf"
