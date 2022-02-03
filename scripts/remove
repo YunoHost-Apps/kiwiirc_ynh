@@ -18,7 +18,6 @@ app=$YNH_APP_INSTANCE_NAME
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 port=$(ynh_app_setting_get --app=$app --key=port)
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 #=================================================
 # STANDARD REMOVE
@@ -43,13 +42,10 @@ ynh_remove_systemd_config
 #=================================================
 # REMOVE APP MAIN DIR
 #=================================================
-ynh_script_progression --message="Removing the app main directory..." --weight=6
+ynh_script_progression --message="Removing Kiwiirc..." --weight=6
 
-# # Remove the app directory securely
-# ynh_secure_remove --file="$final_path"
-
-# ynh_secure_remove --file="/var/www/webircgateway"
 dpkg --remove kiwiirc
+
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
@@ -57,16 +53,6 @@ ynh_script_progression --message="Removing NGINX web server configuration..." --
 
 # Remove the dedicated nginx config
 ynh_remove_nginx_config
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# REMOVE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Removing the dedicated system user..." --weight=1
-
-# Delete a system user
-ynh_system_user_delete --username=$app
 
 #=================================================
 # END OF SCRIPT
