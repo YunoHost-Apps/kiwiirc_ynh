@@ -1,8 +1,8 @@
 {
-    "windowTitle": "Kiwi IRC",
+    "windowTitle": "Web IRC",
     "startupScreen": "welcome",
     "kiwiServer": "/webirc/kiwiirc/",
-    "restricted": false,
+    "restricted": true,
     "theme": "Default",
     "themes": [
         { "name": "Default", "url": "static/themes/default" },
@@ -16,11 +16,10 @@
         { "name": "Elite", "url": "static/themes/elite" }
     ],
     "startupOptions" : {
-        "server": "irc.libera.chat",
-        "port": 6697,
-        "tls": true,
         "channel": "#yunohost",
-        "nick": "web?"
+        "nick": "web?",
+        "greetingText": "Libera Chat",
+        "infoBackground": "",
         "infoContent": "<h3>Welcome to your Kiwi IRC page!</h3><p>Now to configure it.</p><p>You can modify this page via the /etc/kiwiirc/client.json file.<br />Add your IRC network details to /etc/kiwiirc/config.conf</p><p>Have a quick read through the config file - there are plenty of comments explaining each feature.</p>"
     }
 }
