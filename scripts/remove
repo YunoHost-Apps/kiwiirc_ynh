@@ -44,7 +44,7 @@ ynh_remove_systemd_config
 #=================================================
 ynh_script_progression --message="Removing Kiwiirc..." --weight=6
 
-dpkg --remove kiwiirc
+dpkg --purge kiwiirc
 
 #=================================================
 # REMOVE VARIOUS FILES
