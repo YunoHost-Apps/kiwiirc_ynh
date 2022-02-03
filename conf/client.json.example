@@ -1,7 +1,7 @@
 {
     "windowTitle": "Kiwi IRC",
     "startupScreen": "welcome",
-    "kiwiServer": "https://__DOMAIN____PATH__",
+    "kiwiServer": "/webirc/kiwiirc/",
     "restricted": false,
     "theme": "Default",
     "themes": [
@@ -16,16 +16,11 @@
         { "name": "Elite", "url": "static/themes/elite" }
     ],
     "startupOptions" : {
-        "server": "irc.freenode.net",
+        "server": "irc.libera.chat",
         "port": 6697,
         "tls": true,
         "channel": "#yunohost",
-        "nick": ""
-    },
-    "embedly": {
-        "key": ""
-    },
-    "plugins": [
-        { "name": "customise", "url": "static/plugins/customise.html" }
-    ]
+        "nick": "web?"
+        "infoContent": "<h3>Welcome to your Kiwi IRC page!</h3><p>Now to configure it.</p><p>You can modify this page via the /etc/kiwiirc/client.json file.<br />Add your IRC network details to /etc/kiwiirc/config.conf</p><p>Have a quick read through the config file - there are plenty of comments explaining each feature.</p>"
+    }
 }
