@@ -38,8 +38,8 @@ realname = "I am a webchat user"
 
 # The websocket / http server
 [server.1]
-bind = "0.0.0.0"
-port = 80
+bind = "127.0.0.1"
+port = __PORT__
 
 # Example TLS server
 #[server.2]
