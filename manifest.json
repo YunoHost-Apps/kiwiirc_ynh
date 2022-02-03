@@ -31,12 +31,6 @@
             {
                 "name": "domain",
                 "type": "domain"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "example": "/kiwiirc",
-                "default": "/kiwiirc"
             }
         ]
     }
