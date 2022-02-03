@@ -47,6 +47,14 @@ ynh_script_progression --message="Removing Kiwiirc..." --weight=6
 dpkg --remove kiwiirc
 
 #=================================================
+# REMOVE VARIOUS FILES
+#=================================================
+ynh_script_progression --message="Removing various files..." --time --weight=1
+
+# Remove a cron file
+ynh_secure_remove --file="/etc/$app"
+
+#=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=5
