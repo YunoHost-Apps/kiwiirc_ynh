@@ -116,6 +116,11 @@ ynh_script_progression --message="Modifying a config file..."
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/static/config.json"
 ynh_add_config --template="../conf/config.conf.example" --destination="$webircgateway_path/config.conf"
 
+chmod 600 "$final_path/static/config.json"
+chmod 600 "$webircgateway_path/config.conf"
+chown $app:$app "$final_path/some_config_file"
+chown $app:$app "$webircgateway_path/config.conf"
+
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
