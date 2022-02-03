@@ -35,12 +35,6 @@
                 "example": "domain.org"
             },
             {
-                "name": "path",
-                "type": "path",
-                "example": "/kiwiirc",
-                "default": "/kiwiirc"
-            },
-            {
                 "name": "is_public",
                 "type": "boolean",
                 "help": {
