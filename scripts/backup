@@ -43,7 +43,7 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup --src_path="/etc/kiwiirc"
 
-ynh_backup --file="/var/log/$app.log"
+ynh_backup --src_path="/var/log/$app.log"
 
 #=================================================
 # END OF SCRIPT
