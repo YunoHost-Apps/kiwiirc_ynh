@@ -55,8 +55,8 @@ port = __PORT__
 
 # Example unix socket server
 #[server.3]
-bind = unix:/tmp/webircgateway.sock
-bind_mode = 0777
+#bind = unix:/tmp/webircgateway.sock
+#bind_mode = 0777
 
 # Serve static files from a web root folder.
 # Optional, but handy for serving the Kiwi IRC client if no other webserver is available
