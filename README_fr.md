@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 A versatile web based messenger using IRC
 
-###Features:
+### Features:
 
 - For single networks, bouncer hosts, or a personal generic IRC client that remembers your networks
 - Works out of the box with a default IRC network - or use your own
@@ -23,7 +23,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**Version incluse :** 1.5.0~ynh1
+**Version incluse :** 20.05.24.1~ynh1
 
 **Démo :** https://kiwiirc.com/nextclient
 
@@ -34,7 +34,6 @@ A versatile web based messenger using IRC
 ## Documentations et ressources
 
 * Site officiel de l'app : https://kiwiirc.com/
-* Documentation officielle utilisateur : https://yunohost.org/apps
 * Documentation officielle de l'admin : https://github.com/kiwiirc/kiwiirc/wiki
 * Dépôt de code officiel de l'app : https://github.com/kiwiirc/kiwiirc
 * Documentation YunoHost pour cette app : https://yunohost.org/app_kiwiirc

@@ -3,17 +3,16 @@
     "id": "kiwiirc",
     "packaging_format": 1,
     "description": {
-        "en": "A versatile web based messenger using IRC",
-        "fr": "Une messagerie Web polyvalente utilisant IRC"
+        "en": "Versatile web based messenger using IRC",
+        "fr": "Messagerie Web polyvalente utilisant IRC"
     },
-    "version": "1.5.0~ynh1",
+    "version": "20.05.24.1~ynh1",
     "url": "https://github.com/kiwiirc/kiwiirc",
     "upstream": {
         "license": "AGPL-3.0-only",
         "website": "https://kiwiirc.com/",
         "demo": "https://kiwiirc.com/nextclient",
         "admindoc": "https://github.com/kiwiirc/kiwiirc/wiki",
-        "userdoc": "https://yunohost.org/apps",
         "code": "https://github.com/kiwiirc/kiwiirc"
     },
     "license": "AGPL-3.0-only",
@@ -21,7 +20,7 @@
         "name": ""
     },
     "requirements": {
-        "yunohost": ">= 4.2.4"
+        "yunohost": ">= 4.3.0"
     },
     "multi_instance": false,
     "services": [
@@ -31,23 +30,7 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "domain.org"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "example": "/kiwiirc",
-                "default": "/kiwiirc"
-            },
-            {
-                "name": "is_public",
-                "type": "boolean",
-                "help": {
-                    "en": "If enabled, KiwiIRC will be accessible by people who do not have an account. This can be changed later via the webadmin.",
-                    "fr": "Si cette case est cochée, KiwiIRC sera accessible aux personnes n’ayant pas de compte. Vous pourrez changer ceci plus tard via la webadmin."
-                },
-                "default": true
+                "type": "domain"
             }
         ]
     }
