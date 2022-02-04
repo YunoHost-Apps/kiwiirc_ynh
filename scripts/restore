@@ -45,9 +45,11 @@ ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Restoring the NGINX configuration..."
+ynh_script_progression --message="Restoring various file..." --weight=1
 
 ynh_restore_file --origin_path="/etc/kiwiirc"
+
+ynh_restore_file --origin_path="/var/log/$app.log"
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
