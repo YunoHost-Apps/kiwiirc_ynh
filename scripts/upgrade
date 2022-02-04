@@ -48,7 +48,7 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	tempdir="$(mktemp -d)"
 	ynh_setup_source --dest_dir=$tempdir --source_id=app
-	ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
+	ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
 fi
 
 #=================================================
