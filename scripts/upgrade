@@ -64,7 +64,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
