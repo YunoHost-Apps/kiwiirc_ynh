@@ -47,11 +47,8 @@ ynh_abort_if_errors
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	tempdir="$(mktemp -d)"
-
 	ynh_setup_source --dest_dir=$tempdir --source_id=app
-
 	ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
-
 fi
 
 #=================================================
@@ -75,7 +72,7 @@ yunohost service add $app --description="Versatile web based messenger using IRC
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemd_action --service_name=$app --action="restart" --log_path="systemd"
 
 #=================================================
 # RELOAD NGINX
