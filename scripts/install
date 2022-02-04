@@ -64,15 +64,15 @@ ynh_exec_warn_less dpkg -i $tempdir/kiwiirc_20.05.24.1-1_amd64.deb
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+# ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="../conf/client.json.example" --destination="/etc/kiwiirc/client.json"
-ynh_add_config --template="../conf/config.conf.example" --destination="/etc/kiwiirc/config.conf"
+# ynh_add_config --template="../conf/client.json.example" --destination="/etc/kiwiirc/client.json"
+# ynh_add_config --template="../conf/config.conf.example" --destination="/etc/kiwiirc/config.conf"
 
-chmod 775 "/etc/kiwiirc/config.conf"
-chown root: "/etc/kiwiirc/config.conf"
-chmod 775 "/etc/kiwiirc/client.json"
-chown root: "/etc/kiwiirc/client.json"
+# chmod 775 "/etc/kiwiirc/config.conf"
+# chown root: "/etc/kiwiirc/config.conf"
+# chmod 775 "/etc/kiwiirc/client.json"
+# chown root: "/etc/kiwiirc/client.json"
 
 #=================================================
 # NGINX CONFIGURATION
