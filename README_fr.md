@@ -23,7 +23,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**Version incluse :** 20.05.24.1~ynh1
+**Version incluse :** 1.6.1~ynh1
 
 **Démo :** https://kiwiirc.com/nextclient
 
