@@ -1,0 +1,7 @@
+SOURCE_URL=https://github.com/kiwiirc/kiwiirc/releases/download/v1.6.1/kiwiirc-server_v1.6.1-1_linux_arm64.deb
+SOURCE_SUM=4a2ffd2dc53404a0f875333af10c6c24514532e0ffee95104551d8d3f4e2b2b0
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=deb
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=kiwiirc.deb
+SOURCE_EXTRACT=false

@@ -19,6 +19,7 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 port=$(ynh_app_setting_get --app=$app --key=port)
+architecture=$YNH_ARCH
 
 #=================================================
 # CHECK VERSION
@@ -47,7 +48,7 @@ ynh_abort_if_errors
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	tempdir="$(mktemp -d)"
-	ynh_setup_source --dest_dir=$tempdir --source_id=app
+	ynh_setup_source --dest_dir=$tempdir --source_id="$architecture"
 	ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
 fi
 

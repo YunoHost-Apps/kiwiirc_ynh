@@ -1,0 +1,7 @@
+SOURCE_URL=https://github.com/kiwiirc/kiwiirc/releases/download/v1.6.1/kiwiirc-server_v1.6.1-1_linux_armhf.deb
+SOURCE_SUM=94b8e670e10c481dba46aadbdbfd7e9d92ce9c08dbe113e171327e5ba1b8791a
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=deb
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=kiwiirc.deb
+SOURCE_EXTRACT=false

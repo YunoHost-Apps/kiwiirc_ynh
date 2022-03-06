@@ -6,7 +6,7 @@
         "en": "Versatile web based messenger using IRC",
         "fr": "Messagerie Web polyvalente utilisant IRC"
     },
-    "version": "20.05.24.1~ynh1",
+    "version": "1.6.1~ynh1",
     "url": "https://github.com/kiwiirc/kiwiirc",
     "upstream": {
         "license": "AGPL-3.0-only",

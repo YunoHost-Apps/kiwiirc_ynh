@@ -22,6 +22,7 @@ ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
+architecture=$YNH_ARCH
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -56,7 +57,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 ynh_script_progression --message="Setting up source files..." --weight=2
 
 tempdir="$(mktemp -d)"
-ynh_setup_source --dest_dir=$tempdir --source_id=app
+ynh_setup_source --dest_dir=$tempdir --source_id="$architecture"
 ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
 
 #=================================================
