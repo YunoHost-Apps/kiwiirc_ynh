@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # KiwiIRC for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![Working status](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![Working status](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)
+
 [![Install KiwiIRC with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -40,7 +41,7 @@ A versatile web based messenger using IRC
 * Official app website: <https://kiwiirc.com/>
 * Official admin documentation: <https://github.com/kiwiirc/kiwiirc/wiki>
 * Upstream app code repository: <https://github.com/kiwiirc/kiwiirc>
-* YunoHost documentation for this app: <https://yunohost.org/app_kiwiirc>
+* YunoHost Store: <https://apps.yunohost.org/app/kiwiirc>
 * Report a bug: <https://github.com/YunoHost-Apps/kiwiirc_ynh/issues>
 
 ## Developer info
