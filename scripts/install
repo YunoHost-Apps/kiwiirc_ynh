@@ -10,82 +10,35 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
-
-#=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
-#=================================================
-
-domain=$YNH_APP_ARG_DOMAIN
-path_url="/"
-
-app=$YNH_APP_INSTANCE_NAME
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-ynh_script_progression --message="Validating installation parameters..." --weight=1
-
-# Register (book) web path
-ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-ynh_script_progression --message="Storing installation settings..." --weight=2
-
-ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
-
-#=================================================
-# FIND AND OPEN A PORT
-#=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
-
-# Find an available port
-port=$(ynh_find_port --port=7778)
-ynh_app_setting_set --app=$app --key=port --value=$port
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=2
 
-tempdir="$(mktemp -d)"
-ynh_setup_source --dest_dir=$tempdir --source_id=app
-ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
+ynh_setup_source --source_id="main" --dest_dir="$install_dir"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="../conf/client.json.example" --destination="/etc/kiwiirc/client.json"
-ynh_add_config --template="../conf/config.conf.example" --destination="/etc/kiwiirc/config.conf"
+ynh_add_config --template="config.conf" --destination="$install_dir/config.conf"
+chmod 400 "$install_dir/config.conf"
+chown root: "$install_dir/config.conf"
 
-chmod 744 "/etc/kiwiirc/config.conf"
-chown root: "/etc/kiwiirc/config.conf"
-chmod 744 "/etc/kiwiirc/client.json"
-chown root: "/etc/kiwiirc/client.json"
+ynh_add_config --template="client.json" --destination="$install_dir/www/static/client.json"
+chmod 400 "$install_dir/www/static/client.json"
+chown root: "$install_dir/www/static/client.json"
 
 #=================================================
-# NGINX CONFIGURATION
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=2
+ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
+ynh_add_systemd_config
+yunohost service add "$app" --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -93,14 +46,7 @@ yunohost service add $app --description="Versatile web based messenger using IRC
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="restart" --log_path="systemd"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=2
-
-ynh_systemd_action --service_name=nginx --action=reload
+ynh_systemd_action --service_name="$app" --action="restart" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
