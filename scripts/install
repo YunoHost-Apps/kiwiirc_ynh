@@ -27,6 +27,7 @@ chmod 400 "$install_dir/config.conf"
 ynh_add_config --template="client.json" --destination="$install_dir/www/static/client.json"
 chmod 400 "$install_dir/www/static/client.json"
 
+chmod 750 "$install_dir"
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
