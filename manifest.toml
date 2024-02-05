@@ -1,0 +1,52 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "kiwiirc"
+name = "KiwiIRC"
+description.en = "Versatile web based messenger using IRC"
+description.fr = "Messagerie Web polyvalente utilisant IRC"
+
+version = "1.7.0~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "AGPL-3.0-only"
+website = "https://kiwiirc.com/"
+demo = "https://kiwiirc.com/nextclient"
+admindoc = "https://github.com/kiwiirc/kiwiirc/wiki"
+code = "https://github.com/kiwiirc/kiwiirc"
+fund = "https://kiwiirc.com/donate"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = false
+ldap = "not_relevant"
+sso = "not_relevant"
+disk = "50M" # FIXME: replace with an **estimate** minimum disk requirement. e.g. 20M, 400M, 1G, ...
+ram.build = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+
+    [install.domain]
+    type = "domain"
+
+[resources]
+    [resources.sources.main]
+    amd64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_amd64.zip"
+    amd64.sha256 = "790d3b126ac4096d6a34de518f4cade9a291a1e0fe454c99aa460d508e916964"
+    arm64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_arm64.zip"
+    arm64.sha256 = "32e1cc27f15c3057cd6c523a89c45e1663e0b02a4499df6a0c8338e8eebb0329"
+    armhf.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_armhf.zip"
+    armhf.sha256 = "a437d67447b169f6c72ae1a216aff277e2cd35df145c339d6ffd08eb796b6e22"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+    main.default = 7778

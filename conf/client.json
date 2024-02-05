@@ -16,10 +16,16 @@
         { "name": "Elite", "url": "static/themes/elite" }
     ],
     "startupOptions" : {
+        "infoContent": "<h3>Welcome to your Kiwi IRC page!</h3><p>Now to configure it.</p><p>You can modify this page via the /etc/kiwiirc/client.json file.<br />Add your IRC network details to /etc/kiwiirc/config.conf</p><p>Have a quick read through the config file - there are plenty of comments explaining each feature.</p>"
+        "infoBackground": "",
+        "greetingText": "Libera Chat",
         "channel": "#yunohost",
         "nick": "web?",
-        "greetingText": "Libera Chat",
-        "infoBackground": "",
-        "infoContent": "<h3>Welcome to your Kiwi IRC page!</h3><p>Now to configure it.</p><p>You can modify this page via the /etc/kiwiirc/client.json file.<br />Add your IRC network details to /etc/kiwiirc/config.conf</p><p>Have a quick read through the config file - there are plenty of comments explaining each feature.</p>"
-    }
+    },
+    "embedly": {
+        "key": ""
+    },
+    "plugins": [
+        { "name": "customise", "url": "static/plugins/customise.html" }
+    ]
 }
