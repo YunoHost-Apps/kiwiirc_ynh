@@ -39,7 +39,10 @@ ynh_script_progression --message="Adding system configurations related to $app..
 ynh_add_nginx_config
 
 ynh_add_systemd_config
-yunohost service add "$app" --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
+yunohost service add "$app" --description="Versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
+
+# Use logrotate to manage application logfile(s)
+ynh_use_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
