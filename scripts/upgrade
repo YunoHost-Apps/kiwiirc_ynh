@@ -10,61 +10,31 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=2
-
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
-#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
-#REMOVEME? path=$(ynh_app_setting_get --app=$app --key=path)
-#REMOVEME? port=$(ynh_app_setting_get --app=$app --key=port)
-
-#=================================================
-# CHECK VERSION
-#=================================================
-
-upgrade_type=$(ynh_check_app_version_changed)
-
-#=================================================
-# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
-#=================================================
-ynh_script_progression --message="Backing up KiwiIRC before upgrading..." --weight=3
-
-# Backup the current version of the app
-#REMOVEME? ynh_backup_before_upgrade
-#REMOVEME? ynh_clean_setup () {
-	# restore it if the upgrade fails
-#REMOVEME? 	ynh_restore_upgradebackup
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
+ynh_script_progression --message="Setting up source files..." --weight=2
 
-if [ "$upgrade_type" == "UPGRADE_APP" ]
-then
-	tempdir="$(mktemp -d)"
-	ynh_setup_source --dest_dir=$tempdir 
-	ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
-fi
+ynh_setup_source --source_id="main" --dest_dir="$install_dir" --full_replace=1 --keep="config.conf www/static/client.json"
+
+ynh_add_config --template="config.conf" --destination="$install_dir/config.conf"
+chmod 400 "$install_dir/config.conf"
+
+ynh_add_config --template="client.json" --destination="$install_dir/www/static/client.json"
+chmod 400 "$install_dir/www/static/client.json"
+
+chmod 750 "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
-# NGINX CONFIGURATION
+# REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=2
+ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
+ynh_add_systemd_config
+yunohost service add "$app" --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -72,14 +42,7 @@ yunohost service add $app --description="Versatile web based messenger using IRC
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="restart" --log_path="systemd"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
+ynh_systemd_action --service_name="$app" --action="restart" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
