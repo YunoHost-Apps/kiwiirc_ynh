@@ -26,19 +26,9 @@ ynh_remove_systemd_config
 ynh_remove_nginx_config
 
 #=================================================
-# REMOVE APP MAIN DIR
-#=================================================
-ynh_script_progression --message="Removing Kiwiirc..." --weight=6
-
-dpkg --purge kiwiirc
-
-#=================================================
 # REMOVE VARIOUS FILES
 #=================================================
 ynh_script_progression --message="Removing various files..." --weight=1
-
-# Remove a cron file
-ynh_secure_remove --file="/etc/$app"
 
 # Remove the log files
 ynh_secure_remove --file="/var/log/$app.log"

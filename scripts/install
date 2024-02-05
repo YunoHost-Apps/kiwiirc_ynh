@@ -23,11 +23,11 @@ ynh_script_progression --message="Adding a configuration file..." --weight=1
 
 ynh_add_config --template="config.conf" --destination="$install_dir/config.conf"
 chmod 400 "$install_dir/config.conf"
-chown root: "$install_dir/config.conf"
 
 ynh_add_config --template="client.json" --destination="$install_dir/www/static/client.json"
 chmod 400 "$install_dir/www/static/client.json"
-chown root: "$install_dir/www/static/client.json"
+
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # SYSTEM CONFIGURATION
