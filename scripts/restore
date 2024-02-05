@@ -10,66 +10,42 @@ source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
+# RESTORE THE APP MAIN DIR
 #=================================================
+ynh_script_progression --message="Restoring the app main directory..." --weight=1
 
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+ynh_restore_file --origin_path="$install_dir"
 
-#=================================================
-# LOAD SETTINGS
-#=================================================
-ynh_script_progression --message="Loading settings..." --weight=1
-
-app=$YNH_APP_INSTANCE_NAME
-
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-path_url=$(ynh_app_setting_get --app=$app --key=path)
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
-# RESTORE THE NGINX CONFIGURATION
+# RESTORE SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Restoring the NGINX configuration..."
+ynh_script_progression --message="Restoring system configurations related to $app..." --weight=1
 
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
-#=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression --message="Setting up source files..." --weight=2
+ynh_restore_file --origin_path="/etc/systemd/system/$app.service"
+systemctl enable "$app.service" --quiet
+yunohost service add "$app" --description="Versatile web based messenger using IRC" --log="/var/log/$app/$app.log"
 
-tempdir="$(mktemp -d)"
-ynh_setup_source --dest_dir=$tempdir --source_id=app
-ynh_exec_warn_less dpkg -i $tempdir/kiwiirc.deb
+ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 
 #=================================================
-# RESTORE THE NGINX CONFIGURATION
+# RESTORE VARIOUS FILES
 #=================================================
 ynh_script_progression --message="Restoring various file..." --weight=1
 
-ynh_restore_file --origin_path="/etc/kiwiirc"
-
-ynh_restore_file --origin_path="/var/log/$app.log"
+ynh_restore_file --origin_path="/var/log/$app"
 
 #=================================================
-# INTEGRATE SERVICE IN YUNOHOST
+# GENERIC FINALIZATION
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Versatile web based messenger using IRC" --log="/var/log/$app.log"
-
+# RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================
-# START SYSTEMD SERVICE
-#=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Reloading NGINX web server and $app's service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action="restart" --log_path="systemd"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
 ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
