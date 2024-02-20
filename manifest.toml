@@ -48,6 +48,11 @@ ram.runtime = "50M"
     armhf.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_armhf.zip"
     armhf.sha256 = "a437d67447b169f6c72ae1a216aff277e2cd35df145c339d6ffd08eb796b6e22"
 
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.asset.amd64 = "^kiwiirc-server_v1.7.0-2_linux_amd64.zip$"
+    autoupdate.asset.arm64 = "^kiwiirc-server_v1.7.0-2_linux_arm64.zip$"
+    autoupdate.asset.armhf = "^kiwiirc-server_v1.7.0-2_linux_armhf.zip$"
+
     [resources.system_user]
 
     [resources.install_dir]
