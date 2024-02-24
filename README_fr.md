@@ -28,7 +28,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**Version incluse :** 1.7.0~ynh1
+**Version incluse :** 1.7.1~ynh1
 
 **Démo :** https://kiwiirc.com/nextclient
 
