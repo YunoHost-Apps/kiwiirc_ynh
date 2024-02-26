@@ -47,11 +47,14 @@ ram.runtime = "50M"
     arm64.sha256 = "6b9d699f07f0b69ab41073baac52cdc8423f29ffe25e5554f56226b2a8e18efa"
     armhf.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_armhf.zip"
     armhf.sha256 = "38e19f0dee91a820a70f6100776cc77b5db1a6b8dafe1bcb1316cf4200edd307"
+    i386.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_i386.zip"
+    i386.sha256 = "3c1e30fbb01ddde7e23a84729dad572f81d2242e86583ca9d223843700f0ce8e"
 
     autoupdate.strategy = "latest_github_release"
     autoupdate.asset.amd64 = "^kiwiirc-server_.*_linux_amd64.zip$"
     autoupdate.asset.arm64 = "^kiwiirc-server_.*_linux_arm64.zip$"
     autoupdate.asset.armhf = "^kiwiirc-server_.*_linux_armhf.zip$"
+    autoupdate.asset.i386 = "^kiwiirc-server_.*_linux_i386.zip$"
 
     [resources.system_user]
 
