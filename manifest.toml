@@ -7,7 +7,7 @@ name = "KiwiIRC"
 description.en = "Versatile web based messenger using IRC"
 description.fr = "Messagerie Web polyvalente utilisant IRC"
 
-version = "1.7.0~ynh1"
+version = "1.7.1~ynh1"
 
 maintainers = []
 
@@ -41,17 +41,20 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    amd64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_amd64.zip"
-    amd64.sha256 = "790d3b126ac4096d6a34de518f4cade9a291a1e0fe454c99aa460d508e916964"
-    arm64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_arm64.zip"
-    arm64.sha256 = "32e1cc27f15c3057cd6c523a89c45e1663e0b02a4499df6a0c8338e8eebb0329"
-    armhf.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.0/kiwiirc-server_v1.7.0-2_linux_armhf.zip"
-    armhf.sha256 = "a437d67447b169f6c72ae1a216aff277e2cd35df145c339d6ffd08eb796b6e22"
+    amd64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_amd64.zip"
+    amd64.sha256 = "25f0a5d430f59a132e99f45fd32aaab893953b713cd891f8e3e6ad417c678e13"
+    arm64.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_arm64.zip"
+    arm64.sha256 = "6b9d699f07f0b69ab41073baac52cdc8423f29ffe25e5554f56226b2a8e18efa"
+    armhf.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_armhf.zip"
+    armhf.sha256 = "38e19f0dee91a820a70f6100776cc77b5db1a6b8dafe1bcb1316cf4200edd307"
+    i386.url = "https://github.com/kiwiirc/kiwiirc/releases/download/v1.7.1/kiwiirc-server_v1.7.1-2_linux_i386.zip"
+    i386.sha256 = "3c1e30fbb01ddde7e23a84729dad572f81d2242e86583ca9d223843700f0ce8e"
 
     autoupdate.strategy = "latest_github_release"
     autoupdate.asset.amd64 = "^kiwiirc-server_.*_linux_amd64.zip$"
     autoupdate.asset.arm64 = "^kiwiirc-server_.*_linux_arm64.zip$"
     autoupdate.asset.armhf = "^kiwiirc-server_.*_linux_armhf.zip$"
+    autoupdate.asset.i386 = "^kiwiirc-server_.*_linux_i386.zip$"
 
     [resources.system_user]
 
