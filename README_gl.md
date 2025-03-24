@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # KiwiIRC para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/kiwiirc)](https://ci-apps.yunohost.org/ci/apps/kiwiirc/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/kiwiirc)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/kiwiirc)
 
 [![Instalar KiwiIRC con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
 
@@ -28,7 +30,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**Versión proporcionada:** 1.7.1~ynh1
+**Versión proporcionada:** 1.7.1~ynh2
 
 **Demo:** <https://kiwiirc.com/nextclient>
 

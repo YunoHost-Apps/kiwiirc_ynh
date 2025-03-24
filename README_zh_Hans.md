@@ -5,7 +5,9 @@
 
 # YunoHost 上的 KiwiIRC
 
-[![集成程度](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![工作状态](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/kiwiirc)](https://ci-apps.yunohost.org/ci/apps/kiwiirc/)
+![工作状态](https://apps.yunohost.org/badge/state/kiwiirc)
+![维护状态](https://apps.yunohost.org/badge/maintained/kiwiirc)
 
 [![使用 YunoHost 安装 KiwiIRC](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
 
@@ -28,7 +30,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**分发版本：** 1.7.1~ynh1
+**分发版本：** 1.7.1~ynh2
 
 **演示：** <https://kiwiirc.com/nextclient>
 
