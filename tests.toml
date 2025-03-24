@@ -3,3 +3,17 @@
 test_format = 1.0
 
 [default]
+
+    # ------------
+    # Tests to run
+    # ------------
+
+    # -------------------------------
+    # Default args to use for install
+    # -------------------------------
+
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    test_upgrade_from.77d300d988a275be1100dc5d326c6e477d59c8a3.name = "Upgrade from 1.7.1~ynh1"
