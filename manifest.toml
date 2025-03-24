@@ -7,7 +7,7 @@ name = "KiwiIRC"
 description.en = "Versatile web based messenger using IRC"
 description.fr = "Messagerie Web polyvalente utilisant IRC"
 
-version = "1.7.1~ynh1"
+version = "1.7.1~ynh2"
 
 maintainers = []
 

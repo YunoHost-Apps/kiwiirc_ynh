@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # KiwiIRC para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/kiwiirc.svg)](https://dash.yunohost.org/appci/app/kiwiirc) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/kiwiirc.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/kiwiirc.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/kiwiirc)](https://ci-apps.yunohost.org/ci/apps/kiwiirc/)
+![Estado funcional](https://apps.yunohost.org/badge/state/kiwiirc)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/kiwiirc)
 
 [![Instalar KiwiIRC con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=kiwiirc)
 
@@ -28,7 +30,7 @@ A versatile web based messenger using IRC
 - Extremely versatile via a single JSON config file at runtime
 
 
-**Versión actual:** 1.7.1~ynh1
+**Versión actual:** 1.7.1~ynh2
 
 **Demo:** <https://kiwiirc.com/nextclient>
 
@@ -46,7 +48,7 @@ A versatile web based messenger using IRC
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/kiwiirc_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/kiwiirc_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
