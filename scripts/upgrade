@@ -11,13 +11,9 @@ ynh_script_progression "Setting up source files..."
 ynh_setup_source --source_id="main" --dest_dir="$install_dir" --full_replace --keep="config.conf www/static/client.json"
 
 ynh_config_add --template="config.conf" --destination="$install_dir/config.conf"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/config.conf"
 
 ynh_config_add --template="client.json" --destination="$install_dir/www/static/client.json"
-chmod 400 "$install_dir/www/static/client.json"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 750 "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
